@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently -k \"npm run start:server\" \"npm run start:client\"",
+    "start-debug": "concurrently -k \"npm run start:client\" \"npm run start:server-debug\"",
     "start:client": "webpack -w",
     "start:server": "webpack --config webpack.ssr.js && node dist/server/server/server.js",
+    "start:server-debug": "webpack --config webpack.ssr.js && ts-node/register dist/server/server/server.js",
     "dev": "npm run start:client & npm run start:server"
   },
   "keywords": [],
@@ -18,7 +21,11 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-typescript": "^7.10.4",
     "babel-loader": "^8.0.6",
+    "babel-plugin-jsx-pragmatic": "^1.0.2",
+    "clean-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.11",
+    "preact-material-components": "^1.6.1",
+    "ts-node": "^8.10.2",
     "typescript": "^3.9.7",
     "url-loader": "^1.0.1",
     "webpack": "^3.11.0",

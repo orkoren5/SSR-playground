@@ -5,9 +5,9 @@ import Router from '../common/router'
 
 import createStore from '../common/store'
 
-const store = createStore(window.__STATE__)
+const store = createStore(window.__STATE__);
 
-const app = document.getElementById('app')
+const app = document.getElementById('app');
 
 render(
   <Provider store={store}>
@@ -15,4 +15,4 @@ render(
   </Provider>,
   app,
   app.lastChild
-)
+);

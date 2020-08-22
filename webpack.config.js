@@ -1,11 +1,18 @@
 const path = require("path");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const clientConfig = {
-    entry: "./src/client/index.js",
+module.exports = {
+    entry: "./src/client/index.tsx",
+    devtool: "eval-source-map",
     output: {
         path: path.join(__dirname, "dist", "client"),
-        filename: "app.js"
+        filename: "app.js",
+        library: "MyShop",
+        libraryTarget: "umd"
     },
+    plugins: [
+        new CleanWebpackPlugin()
+    ],
     module: {
         rules: [
 			{
@@ -18,25 +25,3 @@ const clientConfig = {
 	  extensions: ['.js', '.jsx', '.tsx', '.ts']
 	}
 };
-
-const serverConfig = {
-    entry: "./src/server/server.js",
-	node: { fs: "empty", net: "empty" },
-    output: {
-        path: path.join(__dirname, "dist", "server"),
-        filename: "server.js"
-    },
-    module: {
-        rules: [
-			{
-                test: /\.(js|jsx|ts|tsx)$/,
-                loader: 'babel-loader'
-            },
-        ]
-    },
-	resolve: {
-	  extensions: ['.js', '.jsx', '.tsx', '.ts']
-	}
-};
-
-module.exports = [clientConfig]
