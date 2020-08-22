@@ -1,4 +1,4 @@
-import { express } from "express";
+import express from "express";
 import { render } from "preact-render-to-string";
 import SSR from "./ssr";
 import createStore from '../common/store'
@@ -12,6 +12,7 @@ const HTMLShell = (html, state) => `
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
             <title> SSR Preact App </title>
         </head>
         <body>

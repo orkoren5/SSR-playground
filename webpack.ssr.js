@@ -3,9 +3,10 @@ const nodeExternals = require('webpack-node-externals');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-    entry: "./src/server/server.tsx",	
+    entry: "./src/server/server.tsx",
+    mode: "development",
 	target: 'node',
-	externals: [nodeExternals()],
+	externals: [nodeExternals({ allowlist: [/^preact-material-components\//] })],
     output: {
         path: path.join(__dirname, "dist", "server", "server"),
         filename: "server.js",
@@ -21,6 +22,13 @@ module.exports = {
                 test: /\.(js|jsx|ts|tsx)$/,
                 loader: 'babel-loader'
             },
+            {
+                test: /\.css$/,
+                use: [
+                    'isomorphic-style-loader',
+                    'css-loader'
+                ]
+            }
         ]
     },
 	resolve: {
