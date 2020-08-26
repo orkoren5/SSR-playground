@@ -1,6 +1,6 @@
 import Router from 'preact-router'
 
-import App from "../common/App";
+import App from "./App";
 import { About } from "./About";
 
 export default () => {

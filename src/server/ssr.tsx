@@ -1,5 +1,5 @@
 import { Provider } from 'unistore/preact'
-import Router from '../common/router'
+import Router from '../client/router'
 
 function SSR(props) {
 	return (

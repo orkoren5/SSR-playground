@@ -5,10 +5,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
     entry: "./src/server/server.tsx",
     mode: "development",
+    devtool: "source-map",
 	target: 'node',
 	externals: [nodeExternals({ allowlist: [/^preact-material-components\//] })],
     output: {
-        path: path.join(__dirname, "dist", "server", "server"),
+        path: path.join(__dirname, "dist", "server"),
         filename: "server.js",
         library: "MyShop",
         libraryTarget: "commonjs"
@@ -26,7 +27,13 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     'isomorphic-style-loader',
-                    'css-loader'
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            esModule: false,
+                            importLoaders: 1
+                        }
+                    }
                 ]
             }
         ]
