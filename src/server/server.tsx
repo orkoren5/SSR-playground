@@ -62,6 +62,6 @@ app.get('/*', (req, res) => {
 	}
 });
 
-app.listen(80, () => {
-	console.log(`Server is listening on port ${80}`);
+app.listen(8080, () => {
+	console.log(`Server is listening on port ${8080}`);
 });
