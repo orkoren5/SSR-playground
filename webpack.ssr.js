@@ -10,7 +10,7 @@ module.exports = {
 	externals: [nodeExternals({ allowlist: [/^preact-material-components\//] })],
     output: {
         path: path.join(__dirname, "dist", "server"),
-        filename: "server.js",
+        filename: "app.js",
         library: "MyShop",
         libraryTarget: "commonjs"
     },

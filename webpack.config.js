@@ -7,7 +7,7 @@ module.exports = {
     devtool: "source-map",
     output: {
         path: path.join(__dirname, "dist", "client"),
-        filename: "app.js",
+        filename: "client.js",
         library: "MyShop",
         libraryTarget: "umd"
     },

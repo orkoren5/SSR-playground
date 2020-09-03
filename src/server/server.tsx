@@ -22,7 +22,7 @@ const HTMLShell = (html, state, css, ids) => {
         <body>
             <div id="app">${html}</div>
       		<script>window.__STATE__=${JSON.stringify(state).replace(/<|>/g, '')}</script>
-            <script src="./app.js"></script>
+            <script src="./client.js"></script>
         </body>
     </html>`;
 };

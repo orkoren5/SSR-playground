@@ -8,7 +8,7 @@
     "start": "concurrently -k \"npm run start:server\" \"npm run start:client\"",
     "start-debug": "concurrently -k \"npm run start:client\" \"npm run start:server-debug\"",
     "start:client": "webpack -w",
-    "start:server": "webpack --config webpack.ssr.js && node dist/server/server.js",
+    "start:server": "webpack --config webpack.ssr.js && node dist/server/app.js",
     "start:server-debug": "webpack --config webpack.ssr.js && ts-node/register dist/server/server/server.js",
     "dev": "npm run start:client & npm run start:server"
   },
